@@ -1,0 +1,9 @@
+./build.sh arm64 -m rootfs
+./build.sh arm64 -p
+mv ramdisk.img ramdisk.img.gz
+gzip -d ramdisk.img.gz 
+sudo cpio -i -F ../ramdisk.img
+cd ..
+sudo chown "SPREADTRUM\zhizhou.tian" -R root/
+ssh-server@~/workspace/sprdroid6.0_trunk_16a/sprdisk/tmp$ ls
+bin  dev  etc  home  init  lib  lib32  linuxrc  media  mnt  opt  proc  root  run  sbin  sys  system  tmp  usr  var
